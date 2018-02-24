@@ -3,6 +3,34 @@ Change log
 
 All notable changes to this program is documented in this file.
 
+Unreleased
+----------
+
+### Added
+
+- New `--jsdebugger` flag to open the Browser Toolbox when Firefox
+  launches.  This is useful for debugging Marionette internals
+
+- Introduced the temporary, boolean capability
+  `moz:useNonSpecCompliantPointerOrigin` to disable the WebDriver
+  conforming behavior of calculating the Pointer Origin
+
+### Changed
+
+- HTTP status code for the [`StaleElementReference`] error changed
+  from 400 (Bad Request) to 404 (Not Found)
+
+- Backtraces from geckodriver no longer substitute for missing
+  Marionette stacktraces
+
+- `Delete Session` now allows Firefox to safely shutdown within 70s before
+  force-killing the process
+
+### Fixed
+
+- Improved error messages for malformed capabilities
+
+
 0.19.1 (2017-10-30)
 -------------------
 
@@ -28,7 +56,7 @@ All notable changes to this program is documented in this file.
 0.19.0 (2017-09-16)
 -------------------
 
-Note that with geckodriver v0.19.0 the following versions are recommended:
+Note that with geckodriver 0.19.0 the following versions are recommended:
 - Firefox 55.0 (and greater)
 - Selenium 3.5 (and greater)
 
@@ -781,6 +809,7 @@ and greater.
 [`SessionNotCreated`]: https://docs.rs/webdriver/newest/webdriver/error/enum.ErrorStatus.html#variant.SessionNotCreated
 [`SetTimeouts`]: https://docs.rs/webdriver/newest/webdriver/command/enum.WebDriverCommand.html#variant.SetTimeouts
 [`SetWindowRect`]: https://docs.rs/webdriver/newest/webdriver/command/enum.WebDriverCommand.html#variant.SetWindowRect
+[`StaleElementReference`]: https://docs.rs/webdriver/newest/webdriver/error/enum.ErrorStatus.html#variant.StaleElementReference
 [`UnableToCaptureScreen`]: https://docs.rs/webdriver/newest/webdriver/error/enum.ErrorStatus.html#variant.UnableToCaptureScreen
 [`UnknownCommand`]: https://docs.rs/webdriver/newest/webdriver/error/enum.ErrorStatus.html#variant.UnknownCommand
 [`UnknownError`]: https://docs.rs/webdriver/newest/webdriver/error/enum.ErrorStatus.html#variant.UnknownError
